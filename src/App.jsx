@@ -7,10 +7,8 @@ import Category from './components/Category';
 import Detail from './components/Detail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import TerrorGenre from "./components/Category/ProductsList/Genres/TerrorGenre";
-import CienciaFGenre from "./components/Category/ProductsList/Genres/CienciaFGenre";
-import FantasiaGenre from "./components/Category/ProductsList/Genres/FantasiaGenre";
-import MisterioGenre from "./components/Category/ProductsList/Genres/MisterioGenre";
+import Genre from "./components/Category/ProductsList/Genre";
+import DetailItem from "./components/Category/ProductsList/DetailItem"
 import {Store} from './store';
 
 function App() {
@@ -36,20 +34,14 @@ function App() {
           <Route exact path="/:category_name">
             <Category />
           </Route>
-          <Route path="/terror">
-            <TerrorGenre />
-          </Route>
-          <Route path="/ciencia-ficcion">
-            <CienciaFGenre />
-          </Route>
-          <Route path="/fantasia">
-            <FantasiaGenre />
-          </Route>
-          <Route path="/misterio">
-            <MisterioGenre />
-          </Route>
           <Route exact path="/:category_name/:id">
             <Detail />
+          </Route>
+          <Route path="/:genre">
+            <Genre />
+          </Route>
+          <Route exact path="/:genre/detail">
+            <DetailItem />
           </Route>
         </Switch>
       </BrowserRouter>

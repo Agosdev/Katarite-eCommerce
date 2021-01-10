@@ -41,7 +41,6 @@ const FeaturedProducts = () => {
                                             img={item.img}
                                             titulo={item.title} 
                                             precio={item.price} 
-                                            categoria={item.category}
                                         />
                                     </li>
                                 ))

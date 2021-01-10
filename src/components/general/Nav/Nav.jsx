@@ -23,6 +23,7 @@ function Nav({titulo, action}) {
             ruta: '/misterio',
         },
     ]
+    
 
     const qty = 1;
 
