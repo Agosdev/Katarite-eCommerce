@@ -1,7 +1,19 @@
+const firebase = require('firebase');
+require("firebase/firestore");
+
+firebase.initializeApp({
+  apiKey: "AIzaSyDnvtILNNV6g_KXCNMhnBd11-Lx6qOPx64",
+  authDomain: "katarite.firebaseapp.com",
+  projectId: "katarite",
+});
+
+var db = firebase.firestore();
+
+
 export const products = [
   {
     "id": 29,
-    "genre": "ciencia-ficcion",
+    "genre": "ciencia ficcion",
     "title": "Ingenieros del mundo anillo",
     "description": "Novela que relata una aventura de ciencia ficcion, por Larry Niven ",
     "image": "https://images-na.ssl-images-amazon.com/images/I/51q0gsJ-+nL._SX318_BO1,204,203,200_.jpg",
@@ -36,3 +48,22 @@ export const products = [
     "outstanding": true,
   },
 ]
+
+productos.forEach((obj) => {
+  db.collection("productos")
+    .add({
+      id: obj.id,
+      genre: obj.genre,
+      title: obj.title,
+      description: obj.description,
+      img: obj.img,
+      price: obj.price,
+      outstanding: obj.outstanding,
+    })
+    .then((docRef) => {
+      console.log("Producto registrado con ID: ", docRef.id);
+    })
+    .catch((error) => {
+      console.error("Error al agregar un documento: ", error);
+    });
+});

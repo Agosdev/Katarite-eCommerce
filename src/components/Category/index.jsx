@@ -3,21 +3,35 @@ import {products} from '../../products'
 import {useParams} from 'react-router-dom';
 import ProductsList from './ProductsList';
 import './Category.css';
+import {getFirestore} from '../../firebase/index';
 
 const Category = () => {
-    const {category_name} = useParams();
+    const {genre_name} = useParams();
     const [prods, setProds] = useState([]);
+    const db = getFirestore();
+
+    const getProducts = () => {
+        db.collection('items').get()
+        .then(doc => {
+            let arr = []
+            doc.forEach(item => {
+                arr.push({
+                    id: item.id,
+                    data: item.data()
+                })
+            })
+            setProds(arr)
+        })
+    }
 
     useEffect(() => {
-        if(category_name) {
-            setProds(products.filter(prod => prod.genre === category_name))
-        }
-    }, [category_name])
+        getProducts()
+    }, [])
 
     return (
         <section className="category">
-            <h2>{category_name.split('-').join(' ')}</h2>
-            <ProductsList products={prods} />
+            <h2>{genre_name.split('-').join(' ')}</h2>
+            <ProductsList prods={prods} genre_name={genre_name} />
         </section>
     )
 }

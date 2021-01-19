@@ -1,41 +1,47 @@
-import React,{useEffect, useState} from 'react';
+import {react, useEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import ProductDetail from './ProductDetail';
-import {products} from '../../products';
+import {getFirestore} from '../../firebase';
 import './Detail.css';
 
 const Detail = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
+    const db = getFirestore();
 
-    const getProduct = new Promise((resolve, reject) => {
-        const selectedProduct = products.filter(item => item.id === parseInt(id));
-        resolve(selectedProduct[0]);
-    });
+    const getProduct = () => {
+        db.collection('items').doc(id).get()
+        .then(doc => {
+            if(doc.exists) {
+                setProduct({
+                    id,
+                    data: doc.data()
+                });
+            }
+        })
+        .catch(e => console.log(e));
 
+        console.log(product)
+    }
+    
     useEffect(() => {
-        getProduct
-        .then(response => setProduct(response))
-        .catch(error => console.log(error));
-    }, []);
+        getProduct()
+    }, [])
 
     return (
         <>
             {
-                product ?
+                product  ?
                 <div className="container">
                     <ol className="breadcrum">
                         <li>
-                            <Link to={`/${product.genre}`}>{product.genre.split('-').join(' ')}</Link>
-                        </li>
-                        <li>
-                            {product.title}
+                        {product.data.title}
                         </li>
                     </ol>
                     
-                    <ProductDetail item={product} />
-                </div> : 
-                <p>Cargando producto...</p>
+                    <ProductDetail product={product} />
+                </div> :
+                <p>cargando productos</p>
             }
         </>
     )

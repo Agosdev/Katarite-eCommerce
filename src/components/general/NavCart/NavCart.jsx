@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 import './NavCart.css';
 import CartIcon from './cart.svg';
-import {Store} from '../../../store';
+import {CartContext} from '../../../CartContext/index'
 
 const NavCart = ({action}) => {
-    const [data, setData] = useContext(Store);
+    const {cart} = useContext(CartContext);
 
     return (
         <div className="navCart" onClick={action}>
-            <img src={CartIcon} width="40"></img>
-            <span>{data.cantidad}</span>
+            <img src={CartIcon} width="40" alt="cart"></img>
+            <span>{cart.cantidadTotal}</span>
         </div>
     )
 }

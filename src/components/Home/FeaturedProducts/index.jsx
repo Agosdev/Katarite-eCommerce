@@ -1,57 +1,54 @@
 import React, {useState, useEffect} from 'react';
 import ProductCard from '../../general/ProductCard/ProductCard';
 import './FeaturedProducts.css';
-import {products} from '../../../products';
+import {getFirestore} from '../../../firebase';
 
 const FeaturedProducts = () => {
     const [items, setItems] = useState([]);
+    const db = getFirestore();
 
-    const getProducts = new Promise((resolve, reject) => {
-        const outstandingProducts = products.filter(item => item.outstanding);
-        resolve(outstandingProducts);
-    })
-
-    const getProducstFromDB = async () => {
-        try {
-            const result = await getProducts;
-            setItems(result);
-        } catch(error) {
-            alert('No podemos mostrar los productos en este momento');
+        const getProductsFromDB = () => {
+            db.collection('items').where("outstanding", "==", true).get()
+            .then(docs => {
+                let arr = [];
+                docs.forEach(doc => {
+                    arr.push({id: doc.id, data: doc.data()})
+                })
+                setItems(arr);
+            })
+            .catch(e => console.log(e));
         }
-    }
 
-    useEffect(() => {
-        getProducstFromDB();
-    }, [])
+            useEffect(() => {
+                getProductsFromDB();
+            })
 
-    return (
-        <section className="featuredProducts">
-            <div className="container">
-                {
-                    items.length ?
-                    <>
-                        <h2>Best Sellers</h2>
-
-                        <ul>
-                            {
-                                items.map((item, index) => (
-                                    <li key={index}>
+            return (
+                <section className="featuredProducts">
+                    <div className="container">
+                        {
+                            items.length ?
+                            <>
+                                <h2>Productos destacados</h2>
+        
+                                <ul>
+                                    { items.map((item) => (
+                                    <li key={item.id}>
                                         <ProductCard 
                                             id={item.id}
-                                            img={item.img}
-                                            titulo={item.title} 
-                                            precio={item.price} 
+                                            image={item.data.image}
+                                            titulo={item.data.title} 
+                                            precio={item.data.price} 
                                         />
                                     </li>
                                 ))
                             }
-                        </ul>
-                    </> :
-                    <p className="cargando">Cargando items...</p>
-                }
-            </div>
-        </section>
-    )
-}
-
-export default FeaturedProducts;
+                            </ul>
+                        </> :
+                        <p className="cargando">Cargando items...</p>
+                    }
+                </div>
+            </section>
+        )
+    }
+    export default FeaturedProducts;

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './reset.css';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavAndWidgetCart from './components/general/NavAndWidgetCart/NavAndWidgetCart';
@@ -7,18 +7,12 @@ import Category from './components/Category';
 import Detail from './components/Detail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import Genre from "./components/Category/ProductsList/Genre";
-import DetailItem from "./components/Category/ProductsList/DetailItem"
-import {Store} from './store';
+import {CartProvider} from './CartContext/index';
 
-function App() {
-  const [data, setData] = useState({
-    items: [],
-    cantidad: 0,
-  })
+const App = () => {
 
   return (
-    <Store.Provider value={[data, setData]}>
+    <CartProvider>
       <BrowserRouter>
         <NavAndWidgetCart />
         <Switch>
@@ -31,22 +25,16 @@ function App() {
           <Route path="/checkout">
             <Checkout />
           </Route>
-          <Route exact path="/:category_name">
+          <Route exact path="/:genre_name">
             <Category />
           </Route>
-          <Route exact path="/:category_name/:id">
+          <Route exact path="/:genre_name/:id">
             <Detail />
-          </Route>
-          <Route path="/:genre">
-            <Genre />
-          </Route>
-          <Route exact path="/:genre/detail">
-            <DetailItem />
           </Route>
         </Switch>
       </BrowserRouter>
-    </Store.Provider>
+      </CartProvider>
   );
-}
 
+}
 export default App;

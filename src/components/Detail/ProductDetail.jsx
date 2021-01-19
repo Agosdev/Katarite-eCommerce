@@ -1,57 +1,48 @@
-import React, {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import './ProductDetail.css';
-import {Store} from '../../store';
-import {useHistory} from 'react-router-dom';
+import {CartContext} from '../../CartContext/index';
 
-const ProductDetail = ({item}) => {
-    const history = useHistory();
-    const [data, setData] = useContext(Store);
-    const [qty, setQty] = useState(1);	
 
-    const handleClickResta = () => {	
-        if(qty > 1) {	
-            setQty(qty - 1);	
-        }	
-    }	
+const ProductDetail = ({product}) => {
+    const [counter, setCounter] = useState(1);
+    const {cart, setCart} = useContext(CartContext);
+
+    const resta = () => {
+        if(counter === 0) {
+            return
+        } else {
+            setCounter(() => {return counter - 1})
+        }
+    }
+
+    const suma = () => setCounter(() => {return counter + 1})
 
     const onAdd = () => {
-        setData({
-            ...data, 
-            cantidad: data.cantidad + qty,
-            items: [...data.items, item],
-        });
-        history.push('/cart');
+        console.log(cart)
+        setCart({...cart,
+            cantidadTotal: cart.cantidadTotal + counter,
+            data: [...cart.data, product]
+        })
+
+        console.log(cart)
     }
-    
-    console.log(data);
 
     return (
         <article className="product">
             <div className="foto">
-            <img src={item.img}></img>
+                <img src={product.data.image} alt=""/>
             </div>
-
             <div className="info">
-                <h1 className="title">{item.title}</h1>
-                {
-                    !!item.description && <p className="description">{item.description}</p>
-                }
-                <p className="price">${item.price}</p>
-                <div className="qty">	
-                    <button 	
-                        disabled={qty === 1 ? 'disabled' : null } 	
-                        onClick={handleClickResta}	
-                    >	
-                        -	
-                    </button>	
-                    <input type="text" value={qty} readOnly/>	
-                    <button onClick={() => setQty(qty + 1)}>+</button>	
+                <h1 className="title">{product.data.title}</h1>
+                <span>{product.data.price}</span>                
+                <div className="contador">
+                    <button onClick={() => resta()}>-</button>
+                    <p>{counter}</p>
+                    <button onClick={() => suma()}>+</button>
                 </div>
-
-                <button className="btn" onClick={onAdd}>Agregar al carrito</button>
+                <button onClick={() => onAdd()} className="btn" >Agregar al carrito</button>
             </div>
         </article>
     )
 }
-
 export default ProductDetail;

@@ -78,3 +78,17 @@
 .product .btn:hover {
   background: #0758af;
 }
+
+.contador {
+  align-items: center;
+  display:flex;
+}
+
+.contador button {
+  padding: 5px;
+  margin: 0 10px 0;
+}
+
+.contador p {
+  padding: 5px;
+}
