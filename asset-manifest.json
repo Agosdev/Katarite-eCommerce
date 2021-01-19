@@ -1,30 +1,28 @@
 {
   "files": {
-    "main.css": "/Katarite-eCommerce/static/css/main.2424412e.chunk.css",
-    "main.js": "/Katarite-eCommerce/static/js/main.9d6cb75c.chunk.js",
-    "main.js.map": "/Katarite-eCommerce/static/js/main.9d6cb75c.chunk.js.map",
+    "main.css": "/Katarite-eCommerce/static/css/main.992bc813.chunk.css",
+    "main.js": "/Katarite-eCommerce/static/js/main.fc9ffac5.chunk.js",
+    "main.js.map": "/Katarite-eCommerce/static/js/main.fc9ffac5.chunk.js.map",
     "runtime-main.js": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js",
     "runtime-main.js.map": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js.map",
     "static/css/2.3973252f.chunk.css": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css",
-    "static/js/2.17e67a9b.chunk.js": "/Katarite-eCommerce/static/js/2.17e67a9b.chunk.js",
-    "static/js/2.17e67a9b.chunk.js.map": "/Katarite-eCommerce/static/js/2.17e67a9b.chunk.js.map",
+    "static/js/2.46cd28f2.chunk.js": "/Katarite-eCommerce/static/js/2.46cd28f2.chunk.js",
+    "static/js/2.46cd28f2.chunk.js.map": "/Katarite-eCommerce/static/js/2.46cd28f2.chunk.js.map",
     "index.html": "/Katarite-eCommerce/index.html",
     "static/css/2.3973252f.chunk.css.map": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css.map",
-    "static/css/main.2424412e.chunk.css.map": "/Katarite-eCommerce/static/css/main.2424412e.chunk.css.map",
-    "static/js/2.17e67a9b.chunk.js.LICENSE.txt": "/Katarite-eCommerce/static/js/2.17e67a9b.chunk.js.LICENSE.txt",
+    "static/css/main.992bc813.chunk.css.map": "/Katarite-eCommerce/static/css/main.992bc813.chunk.css.map",
+    "static/js/2.46cd28f2.chunk.js.LICENSE.txt": "/Katarite-eCommerce/static/js/2.46cd28f2.chunk.js.LICENSE.txt",
     "static/media/cart.891d6e79.svg": "/Katarite-eCommerce/static/media/cart.891d6e79.svg",
-    "static/media/grid.7a6ddfad.svg": "/Katarite-eCommerce/static/media/grid.7a6ddfad.svg",
     "static/media/libro1.e47abd1d.jpg": "/Katarite-eCommerce/static/media/libro1.e47abd1d.jpg",
     "static/media/libro2.b7808989.jpg": "/Katarite-eCommerce/static/media/libro2.b7808989.jpg",
     "static/media/libro3.0fc82f56.jpg": "/Katarite-eCommerce/static/media/libro3.0fc82f56.jpg",
-    "static/media/list.b91688f1.svg": "/Katarite-eCommerce/static/media/list.b91688f1.svg",
     "static/media/slick-theme.css": "/Katarite-eCommerce/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.36723c76.js",
     "static/css/2.3973252f.chunk.css",
-    "static/js/2.17e67a9b.chunk.js",
-    "static/css/main.2424412e.chunk.css",
-    "static/js/main.9d6cb75c.chunk.js"
+    "static/js/2.46cd28f2.chunk.js",
+    "static/css/main.992bc813.chunk.css",
+    "static/js/main.fc9ffac5.chunk.js"
   ]
 }
