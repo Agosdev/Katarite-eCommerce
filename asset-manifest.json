@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Katarite-eCommerce/static/css/main.74e199fb.chunk.css",
-    "main.js": "/Katarite-eCommerce/static/js/main.2ae68380.chunk.js",
-    "main.js.map": "/Katarite-eCommerce/static/js/main.2ae68380.chunk.js.map",
+    "main.css": "/Katarite-eCommerce/static/css/main.8971156a.chunk.css",
+    "main.js": "/Katarite-eCommerce/static/js/main.d5032576.chunk.js",
+    "main.js.map": "/Katarite-eCommerce/static/js/main.d5032576.chunk.js.map",
     "runtime-main.js": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js",
     "runtime-main.js.map": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js.map",
     "static/css/2.3973252f.chunk.css": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.3979a9ec.chunk.js.map": "/Katarite-eCommerce/static/js/2.3979a9ec.chunk.js.map",
     "index.html": "/Katarite-eCommerce/index.html",
     "static/css/2.3973252f.chunk.css.map": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css.map",
-    "static/css/main.74e199fb.chunk.css.map": "/Katarite-eCommerce/static/css/main.74e199fb.chunk.css.map",
+    "static/css/main.8971156a.chunk.css.map": "/Katarite-eCommerce/static/css/main.8971156a.chunk.css.map",
     "static/js/2.3979a9ec.chunk.js.LICENSE.txt": "/Katarite-eCommerce/static/js/2.3979a9ec.chunk.js.LICENSE.txt",
     "static/media/cart.891d6e79.svg": "/Katarite-eCommerce/static/media/cart.891d6e79.svg",
     "static/media/libro1.e47abd1d.jpg": "/Katarite-eCommerce/static/media/libro1.e47abd1d.jpg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.36723c76.js",
     "static/css/2.3973252f.chunk.css",
     "static/js/2.3979a9ec.chunk.js",
-    "static/css/main.74e199fb.chunk.css",
-    "static/js/main.2ae68380.chunk.js"
+    "static/css/main.8971156a.chunk.css",
+    "static/js/main.d5032576.chunk.js"
   ]
 }
