@@ -1,11 +1,11 @@
-import {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import './ProductDetail.css';
 import {CartContext} from '../../CartContext/index';
 
 
 const ProductDetail = ({product}) => {
     const [counter, setCounter] = useState(1);
-    const {cart, setCart} = useContext(CartContext);
+    const {addOnCart} = useContext(CartContext);
 
     const resta = () => {
         if(counter === 0) {
@@ -17,14 +17,9 @@ const ProductDetail = ({product}) => {
 
     const suma = () => setCounter(() => {return counter + 1})
 
-    const onAdd = () => {
-        console.log(cart)
-        setCart({...cart,
-            cantidadTotal: cart.cantidadTotal + counter,
-            data: [...cart.data, product]
-        })
-
-        console.log(cart)
+    const onAdd = (producto, counter) => {
+        addOnCart(producto, counter)
+        setCounter(1)
     }
 
     return (
@@ -40,7 +35,7 @@ const ProductDetail = ({product}) => {
                     <p>{counter}</p>
                     <button onClick={() => suma()}>+</button>
                 </div>
-                <button onClick={() => onAdd()} className="btn" >Agregar al carrito</button>
+                <button onClick={() => onAdd(product, counter)} className="btn" >Agregar al carrito</button>
             </div>
         </article>
     )

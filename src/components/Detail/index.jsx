@@ -1,5 +1,5 @@
-import {react, useEffect, useState} from 'react';
-import {useParams, Link} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import ProductDetail from './ProductDetail';
 import {getFirestore} from '../../firebase';
 import './Detail.css';
@@ -20,8 +20,6 @@ const Detail = () => {
             }
         })
         .catch(e => console.log(e));
-
-        console.log(product)
     }
     
     useEffect(() => {

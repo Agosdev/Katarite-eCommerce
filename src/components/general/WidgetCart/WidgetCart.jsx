@@ -1,27 +1,29 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect, useState} from 'react';
 import './WidgetCart.css';
 import {CartContext} from '../../../CartContext/index';
 
 const WidgetCart = ({show, action}) => {
-    const {dropCart,cart, setCart} = useContext(CartContext);
+    const {dropCart, cart , deleteItem, changeQty} = useContext(CartContext);
 
-    const deleteItem = (id) => {
-       const datoId = cart.data.filter( ident => ident.id !== id)
-       setCart({...cart, 
-        data: datoId})
-    }
+    useEffect(() => {
+        console.log(cart)
+    }, [])
+
 
     return (
         <div className={`widgetCart ${show ? 'open' : 'close'}`}>
             {
                 cart.data.map(item => {return (
-                    <>
-                    <p>{item.data.title}</p>
-                    <p>{item.data.author}</p>
-                    <p>{item.data.price}</p>
-                    <p>{item.id}</p>
+                    <div key={item.id}>
+                        <h2>{item.data.title}</h2>
+                        <p>{item.data.author}</p>
+                        <p>{item.data.price}</p>
+                        <p>x {item.data.quantity}</p>
+                        <p>{item.id}</p>
+                     <button onClick={() => changeQty(item, "-")}>-</button>
+                    <button onClick={() => changeQty(item, "+")}>+</button>
                     <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
-                    </>
+                    </div>
                 )})
             }
             <button onClick={action} style={{padding: 5}}>x</button>

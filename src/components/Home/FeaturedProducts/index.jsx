@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 import ProductCard from '../../general/ProductCard/ProductCard';
 import './FeaturedProducts.css';
 import {getFirestore} from '../../../firebase';
+import { Link } from "react-router-dom";
+
 
 const FeaturedProducts = () => {
     const [items, setItems] = useState([]);
+
     const db = getFirestore();
 
         const getProductsFromDB = () => {
@@ -21,29 +24,18 @@ const FeaturedProducts = () => {
 
             useEffect(() => {
                 getProductsFromDB();
-            })
+            }, [])
 
-            return (
+           return (
                 <section className="featuredProducts">
                     <div className="container">
                         {
                             items.length ?
                             <>
-                                <h2>Productos destacados</h2>
-        
+                                <h2>Best Sellers</h2>
                                 <ul>
-                                    { items.map((item) => (
-                                    <li key={item.id}>
-                                        <ProductCard 
-                                            id={item.id}
-                                            image={item.data.image}
-                                            titulo={item.data.title} 
-                                            precio={item.data.price} 
-                                        />
-                                    </li>
-                                ))
-                            }
-                            </ul>
+                                    <ProductCard prods={items}/>
+                                </ul>
                         </> :
                         <p className="cargando">Cargando items...</p>
                     }

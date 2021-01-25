@@ -1,6 +1,6 @@
 import React from 'react';
 import './reset.css';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Redirect, Switch, Route} from 'react-router-dom';
 import NavAndWidgetCart from './components/general/NavAndWidgetCart/NavAndWidgetCart';
 import Home from './components/Home';
 import Category from './components/Category';
@@ -8,6 +8,7 @@ import Detail from './components/Detail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import {CartProvider} from './CartContext/index';
+
 
 const App = () => {
 
@@ -18,6 +19,9 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/Katarite-eCommerce">
+            <Redirect to="/"/>
           </Route>
           <Route path="/cart">
             <Cart />

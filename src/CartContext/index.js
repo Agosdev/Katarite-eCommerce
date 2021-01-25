@@ -10,22 +10,37 @@ function CartProvider({children}) {
     });
 
     const cartLength = () => {
-        return cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.cant}, 0);
+        return cart.data.reduce((accumulator, currentValue) => { return accumulator + currentValue.data.quantity}, 0);
     }
 
     const cartPrice = () => {
         return cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.cant * currentValue.prod.price}, 0);
     }
 
-    const addToCart = (newProduct, quantity) => {
-        let prodIndex = cart.findIndex(item => item.prod.id === newProduct.id);
-        if (prodIndex === -1){
-            setCart (cart => [...cart, {prod: newProduct, cant: quantity}]);
-        } else {
-            let modifiedCart = [...cart];
-            modifiedCart[prodIndex].cant += quantity;
-            setCart (modifiedCart);
+    const addOnCart = (producto, counter) => {
+        const cantidadTotaldelTotal = cartLength();
+        console.log(cantidadTotaldelTotal)
+
+        if(cart.data.find( ident => ident.id === producto.id)){
+            const IndiceProducto = cart.data.findIndex( item => item.id === producto.id)
+            cart.data[IndiceProducto].data.quantity = cart.data[IndiceProducto].data.quantity + counter
+            setCart({...cart,
+                cantidadTotal: cartLength()
+            })
+        } else{
+            producto.data.quantity = counter
+            setCart({...cart,
+                cantidadTotal: cartLength(),
+                data: [...cart.data, producto]
+            })
         }
+    }
+
+    const changeQty = (producto, signo) => {
+        const IndiceProducto = cart.data.findIndex( item => item.id === producto.id)
+        cart.data[IndiceProducto].data.quantity = signo === "-" ? cart.data[IndiceProducto].data.quantity - 1 : cart.data[IndiceProducto].data.quantity + 1;
+        setCart({...cart,
+            cantidadTotal: cartLength()})
     }
 
     const dropCart = () => {
@@ -35,8 +50,14 @@ function CartProvider({children}) {
         });
     }
 
+    const deleteItem = (id) => {
+        const datoId = cart.data.filter( ident => ident.id !== id)
+        setCart({...cart, 
+         data: datoId})
+     }
+
     return (
-        <CartContext.Provider value={{cart, setCart, addToCart, cartLength, cartPrice, dropCart}}>
+        <CartContext.Provider value={{cart, setCart, addOnCart, cartLength, cartPrice, dropCart, deleteItem, changeQty}}>
             {children}
         </CartContext.Provider>
     )
