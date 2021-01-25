@@ -19,7 +19,7 @@ const ProductCard = ({prods, genre_name}) => {
         <>
         {
            genero.map( item => { return (
-                <article className={`productCard`}>
+                <article key={item.id} className={`productCard`}>
                     <img src={item.data.image} alt="productos" width="300"/>
                     <div>
                         <h3>{item.data.title}</h3>

@@ -14,12 +14,12 @@ function CartProvider({children}) {
     }
 
     const cartPrice = () => {
-        return cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.cant * currentValue.prod.price}, 0);
+        return cart.data.reduce((accumulator, currentValue) => { return accumulator + currentValue.data.quantity * currentValue.data.price}, 0);
     }
+   
 
     const addOnCart = (producto, counter) => {
-        const cantidadTotaldelTotal = cartLength();
-        console.log(cantidadTotaldelTotal)
+        debugger
 
         if(cart.data.find( ident => ident.id === producto.id)){
             const IndiceProducto = cart.data.findIndex( item => item.id === producto.id)
@@ -30,7 +30,7 @@ function CartProvider({children}) {
         } else{
             producto.data.quantity = counter
             setCart({...cart,
-                cantidadTotal: cartLength(),
+                cantidadTotal: cartLength() + counter,
                 data: [...cart.data, producto]
             })
         }
@@ -53,6 +53,7 @@ function CartProvider({children}) {
     const deleteItem = (id) => {
         const datoId = cart.data.filter( ident => ident.id !== id)
         setCart({...cart, 
+         cantidadTotal: cartLength(),
          data: datoId})
      }
 

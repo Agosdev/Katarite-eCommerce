@@ -1,6 +1,7 @@
 import React,{useContext, useEffect, useState} from 'react';
 import './WidgetCart.css';
 import {CartContext} from '../../../CartContext/index';
+import {Link} from "react-router-dom";
 
 const WidgetCart = ({show, action}) => {
     const {dropCart, cart , deleteItem, changeQty} = useContext(CartContext);
@@ -21,13 +22,14 @@ const WidgetCart = ({show, action}) => {
                         <p>x {item.data.quantity}</p>
                         <p>{item.id}</p>
                      <button onClick={() => changeQty(item, "-")}>-</button>
-                    <button onClick={() => changeQty(item, "+")}>+</button>
-                    <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
-                    </div>
+                     <button onClick={() => changeQty(item, "+")}>+</button>
+                     <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
+                   </div>
                 )})
             }
             <button onClick={action} style={{padding: 5}}>x</button>
             <button onClick={() => dropCart()}>Vaciar Carrito</button>
+             <Link to="/cart"> <button>Comprar</button> </Link>
         </div>
     )
 }
