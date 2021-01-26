@@ -29,7 +29,7 @@ const ProductDetail = ({product}) => {
             </div>
             <div className="info">
                 <h1 className="title">{product.data.title}</h1>
-                <span>{product.data.price}</span>                
+                <h3 style={{color:"black"}}>${product.data.price}</h3>                
                 <div className="contador">
                     <button onClick={() => resta()}>-</button>
                     <p>{counter}</p>

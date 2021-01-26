@@ -13,21 +13,23 @@ const WidgetCart = ({show, action}) => {
 
     return (
         <div className={`widgetCart ${show ? 'open' : 'close'}`}>
+                        <button onClick={action}>x</button>
+
             {
                 cart.data.map(item => {return (
-                    <div key={item.id}>
+                    <>
+                    <div style={{display:"flex"}} key={item.id}>
                         <h2>{item.data.title}</h2>
-                        <p>{item.data.author}</p>
-                        <p>{item.data.price}</p>
-                        <p>x {item.data.quantity}</p>
-                        <p>{item.id}</p>
+                        <h3>{item.data.author}</h3>
+                        <p>${item.data.price} x {item.data.quantity}</p>
                      <button onClick={() => changeQty(item, "-")}>-</button>
                      <button onClick={() => changeQty(item, "+")}>+</button>
-                     <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
                    </div>
+                   <p>Codigo: {item.id}</p>
+                   <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
+                   </>
                 )})
             }
-            <button onClick={action} style={{padding: 5}}>x</button>
             <button onClick={() => dropCart()}>Vaciar Carrito</button>
              <Link to="/cart"> <button>Comprar</button> </Link>
         </div>

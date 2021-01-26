@@ -7,6 +7,15 @@
     font-size: 3rem;
     color: var(--color-secundario);
   }
+
+  h3 {
+    color: var(--color-principal);
+    font-size: 2rem;
+  }
+
+  p {
+    font-weight: bolder;
+  }
   
   .checkout form {
     margin-top: 3rem;
@@ -25,5 +34,8 @@
 
   button {
     background-color: aquamarine;
-    font-size: bolder;
+    font-weight: bolder;
+    padding: 10px;
+    border: none;
+    margin: 10px;
   }

@@ -8,6 +8,11 @@
   color: var(--color-secundario);
 }
 
+ h3 {
+  font-size: 1.6rem;
+  padding: 10px 0 10px 0;
+}
+
 .cart ul {
   width: 90%;
   margin: auto;
@@ -28,7 +33,7 @@
 
 .cart ul li h2 {
   color: var(--color-principal);
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .cart ul li p {

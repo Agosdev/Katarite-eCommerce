@@ -53,7 +53,7 @@ function CartProvider({children}) {
     const deleteItem = (id) => {
         const datoId = cart.data.filter( ident => ident.id !== id)
         setCart({...cart, 
-         cantidadTotal: cartLength(),
+         cantidadTotal: cartLength()- cart.data.quantity,
          data: datoId})
      }
 
