@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from 'react';
+import React,{useContext, useEffect} from 'react';
 import './WidgetCart.css';
 import {CartContext} from '../../../CartContext/index';
 import {Link} from "react-router-dom";
@@ -26,7 +26,7 @@ const WidgetCart = ({show, action}) => {
                      <button onClick={() => changeQty(item, "+")}>+</button>
                    </div>
                    <p>Codigo: {item.id}</p>
-                   <button onClick={() => {deleteItem(item.id)}}>Eliminar</button>
+                   <button onClick={() => {deleteItem(item)}}>Eliminar</button>
                    </>
                 )})
             }

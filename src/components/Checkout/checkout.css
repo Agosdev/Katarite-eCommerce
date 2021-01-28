@@ -39,3 +39,13 @@
     border: none;
     margin: 10px;
   }
+
+ 
+  .show {
+    visibility: visible;
+  }
+
+
+  .hide {
+     visibility: hidden;
+  }

@@ -19,8 +19,6 @@ function CartProvider({children}) {
    
 
     const addOnCart = (producto, counter) => {
-        debugger
-
         if(cart.data.find( ident => ident.id === producto.id)){
             const IndiceProducto = cart.data.findIndex( item => item.id === producto.id)
             cart.data[IndiceProducto].data.quantity = cart.data[IndiceProducto].data.quantity + counter
@@ -50,10 +48,12 @@ function CartProvider({children}) {
         });
     }
 
-    const deleteItem = (id) => {
-        const datoId = cart.data.filter( ident => ident.id !== id)
+    const deleteItem = (producto) => {
+        console.log(producto)
+        const IndiceProducto = cart.data.findIndex( item => item.id === producto.id)
+        const datoId = cart.data.filter( ident => ident.id !== producto.id)
         setCart({...cart, 
-         cantidadTotal: cartLength()- cart.data.quantity,
+         cantidadTotal: cartLength() - cart.data[IndiceProducto].data.quantity,
          data: datoId})
      }
 

@@ -25,7 +25,7 @@ const Cart = () => {
                                 <p>Cantidad: {item.data.quantity}</p>
                                 <p>Precio por unidad: <strong>${item.data.price}</strong></p>
                                 <p>Precio total: <strong>${item.data.price * item.data.quantity}</strong></p>
-                                <button onClick={() => deleteItem(item.id)}>Eliminar producto</button>
+                                <button onClick={() => deleteItem(item)}>Eliminar producto</button>
                                 <button onClick={() => changeQty(item, "+")}> + </button>
                                 <button onClick={() => changeQty(item, "-")}> - </button>
                             </div>
