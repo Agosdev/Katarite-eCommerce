@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Katarite-eCommerce/static/css/main.e3d82f12.chunk.css",
-    "main.js": "/Katarite-eCommerce/static/js/main.2d3a8958.chunk.js",
-    "main.js.map": "/Katarite-eCommerce/static/js/main.2d3a8958.chunk.js.map",
+    "main.css": "/Katarite-eCommerce/static/css/main.aaea933d.chunk.css",
+    "main.js": "/Katarite-eCommerce/static/js/main.f6d33687.chunk.js",
+    "main.js.map": "/Katarite-eCommerce/static/js/main.f6d33687.chunk.js.map",
     "runtime-main.js": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js",
     "runtime-main.js.map": "/Katarite-eCommerce/static/js/runtime-main.36723c76.js.map",
     "static/css/2.3973252f.chunk.css": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css",
-    "static/js/2.3979a9ec.chunk.js": "/Katarite-eCommerce/static/js/2.3979a9ec.chunk.js",
-    "static/js/2.3979a9ec.chunk.js.map": "/Katarite-eCommerce/static/js/2.3979a9ec.chunk.js.map",
+    "static/js/2.258a5b08.chunk.js": "/Katarite-eCommerce/static/js/2.258a5b08.chunk.js",
+    "static/js/2.258a5b08.chunk.js.map": "/Katarite-eCommerce/static/js/2.258a5b08.chunk.js.map",
     "index.html": "/Katarite-eCommerce/index.html",
     "static/css/2.3973252f.chunk.css.map": "/Katarite-eCommerce/static/css/2.3973252f.chunk.css.map",
-    "static/css/main.e3d82f12.chunk.css.map": "/Katarite-eCommerce/static/css/main.e3d82f12.chunk.css.map",
-    "static/js/2.3979a9ec.chunk.js.LICENSE.txt": "/Katarite-eCommerce/static/js/2.3979a9ec.chunk.js.LICENSE.txt",
+    "static/css/main.aaea933d.chunk.css.map": "/Katarite-eCommerce/static/css/main.aaea933d.chunk.css.map",
+    "static/js/2.258a5b08.chunk.js.LICENSE.txt": "/Katarite-eCommerce/static/js/2.258a5b08.chunk.js.LICENSE.txt",
     "static/media/cart.891d6e79.svg": "/Katarite-eCommerce/static/media/cart.891d6e79.svg",
     "static/media/libro1.e47abd1d.jpg": "/Katarite-eCommerce/static/media/libro1.e47abd1d.jpg",
     "static/media/libro2.b7808989.jpg": "/Katarite-eCommerce/static/media/libro2.b7808989.jpg",
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.36723c76.js",
     "static/css/2.3973252f.chunk.css",
-    "static/js/2.3979a9ec.chunk.js",
-    "static/css/main.e3d82f12.chunk.css",
-    "static/js/main.2d3a8958.chunk.js"
+    "static/js/2.258a5b08.chunk.js",
+    "static/css/main.aaea933d.chunk.css",
+    "static/js/main.f6d33687.chunk.js"
   ]
 }
